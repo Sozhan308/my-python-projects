@@ -17,3 +17,5 @@
 [Project_based_python](https://github.com/pytopia/Project-Based-Python/tree/main)
 
 [Project_based_learning](https://github.com/practical-tutorials/project-based-learning#python)
+
+[Coding_Challenges](https://codingchallenges.fyi/)
