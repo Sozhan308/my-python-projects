@@ -9,37 +9,52 @@ class RockPaperScissors:
     mylist = ["rock", "paper", "scissor"]
     return random.choice(mylist)
   
-  def playRound(humanChoice,computerChoice, humanScore, ComputerScore):
+  def get_human_choice(self):
+    return input("Enter your Choice: ")
+  
+  def playRound(self, humanChoice, computerChoice):
     if(humanChoice.casefold() == "scissor" and computerChoice.casefold() == "paper") or (humanChoice.casefold() == "paper" and computerChoice.casefold() == "rock" ) or (humanChoice.casefold() == "rock" and computerChoice.casefold() == "scissor" ):
-      humanScore += 1
+      return "human"
     elif(humanChoice.casefold() == "paper" and computerChoice.casefold() == "scissor") or (humanChoice.casefold() == "rock" and computerChoice.casefold() == "paper" ) or (humanChoice.casefold() == "scissor" and computerChoice.casefold() == "rock" ):
-      ComputerScore += 1
+      return "computer"
     else:
-      pass
-    return humanScore, ComputerScore
+      return "tie"
       
 class PlayGame(RockPaperScissors):
   
-  def playGame(self,Rounds,humanSelection,computerSelection,humanScore,ComputerScore):
+  def playGame(self,Rounds):
+    humanScore = 0
+    computerScore = 0
     for i in range(Rounds):
-      RockPaperScissors.playRound(humanSelection,computerSelection, humanScore, ComputerScore)
-    if(humanScore > ComputerScore):
+      computer_choice = self.get_computer_choice()
+      human_choice = self.get_human_choice()
+      print(f" Human: {human_choice} and Computer: {computer_choice}")
+      result = self.playRound(human_choice,computer_choice)
+      
+      if(result == "human"):
+        humanScore +=1
+        print("human wins this round!!")
+      elif(result == "computer"):
+        computerScore +=1
+        print("computer wins this round")
+      else:
+        print("this round is a tie")
+        
+    print(f"Final Scores => Human - {humanScore} | computer - {computerScore}")
+    
+    # Final Result
+    
+    if(humanScore > computerScore):
       print("Final winner is human")
-    elif(ComputerScore > humanScore):
+    elif(computerScore > humanScore):
       print("Final winner is computer")
     else:
       print("Tie")
   
 def main():
-  
-  rockpaperscissors = RockPaperScissors()
-  humanSelection = input("Enter your choice")
-  computerSelection = rockpaperscissors.get_computer_choice()
-  humanScore=0
-  ComputerScore=0
+
   playGame = PlayGame()
-  playGame.playGame(5,humanSelection,computerSelection,humanScore,ComputerScore)
-  
+  playGame.playGame(5)
   
 if __name__ == "__main__":
   main()
