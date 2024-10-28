@@ -1,2 +1,4 @@
 # For project-03-password-generator
 nltk
+# For project-04-Streamlit-dashboard
+streamlit
