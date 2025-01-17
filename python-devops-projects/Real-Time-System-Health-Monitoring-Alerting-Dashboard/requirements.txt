@@ -1,0 +1,7 @@
+psutil 
+platform
+requests
+smtplib
+logging
+paramiko
+PyYAML
