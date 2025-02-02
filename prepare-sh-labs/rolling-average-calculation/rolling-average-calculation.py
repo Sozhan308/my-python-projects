@@ -23,7 +23,9 @@ def rolling_average_calculation(number: List[float], k: int) -> List[float]:
             
 def main():
     k = int(input())
-    number = input().split()
     number = list(map(float, input().split()))
     result = rolling_average_calculation(number, k)
     print(result)
+    
+if __name__=='__main__':
+    main()
